@@ -21,7 +21,7 @@ public class InputValidator {
 
     public String sanitise(String input) {
         if (input == null) return "";
-        return input.replaceAll("[<>\"'&]", "").trim();
+        return input.replaceAll("<[^>]*>", "").replaceAll("[\"'&]", "").trim();
     }
 
     public boolean isValidRegion(String region) {
